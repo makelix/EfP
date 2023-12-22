@@ -1,6 +1,4 @@
-﻿using System.Security.Cryptography.X509Certificates;
-
-namespace TipCalculator
+﻿namespace TipCalculatorNS
 {
     /// <summary>
     /// Create a simple tip calculator. The program should prompt
@@ -13,7 +11,7 @@ namespace TipCalculator
     /// The tip is $30.00
     /// The total is $230.00
     /// </summary>
-    internal class TipCalculator
+    public class TipCalculator
     {
         public double BillAmount { get; set; }
         public double TipPercentage { get; set; }
@@ -24,6 +22,16 @@ namespace TipCalculator
 
         public TipCalculator(double billAmount, double tipPercentage)
         {
+            if (Double.IsNegative(billAmount))
+            {
+                throw new ArgumentOutOfRangeException("Amount must be positive.");
+            }
+
+            if (Double.IsNegative(tipPercentage))
+            {
+                throw new ArgumentOutOfRangeException("Tip must be positive.");
+            }
+
             BillAmount = billAmount;
             TipPercentage = tipPercentage;
         }
