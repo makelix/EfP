@@ -1,4 +1,6 @@
-﻿namespace TipCalculatorNS
+﻿using System.Globalization;
+
+namespace TipCalculatorNS
 {
     /// <summary>
     /// Create a simple tip calculator. The program should prompt
@@ -36,14 +38,14 @@
         /// <summary>
         /// The tip as a string: $#.##
         /// </summary>
-        // TODO: format the string
-        public string TipAsString => Tip.ToString();
+        // TODO: round up
+        public string TipAsString => Tip.ToString("$0.00", CultureInfo.InvariantCulture);
 
         /// <summary>
         /// The total sum as string $#.##
         /// </summary>
-        // TODO: format the string
-        public string TotalAsString => Total.ToString();
+        // TODO: round up
+        public string TotalAsString => Total.ToString("$0.00", CultureInfo.InvariantCulture);
 
         public TipCalculator() : this(0, 0) { }
 
