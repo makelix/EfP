@@ -13,10 +13,37 @@
     /// </summary>
     public class TipCalculator
     {
+        /// <summary>
+        /// Bill amount in dollars.
+        /// </summary>
         public double BillAmount { get; set; }
-        public double TipPercentage { get; set; }
-        public double Tip => BillAmount * TipPercentage / 100;
+
+        /// <summary>
+        /// Tip rate in percents.
+        /// </summary>
+        public double TipRate { get; set; }
+
+        /// <summary>
+        /// The tip in dollars.
+        /// </summary>
+        public double Tip => BillAmount * TipRate / 100;
+
+        /// <summary>
+        /// The total sum (bill amount + tip) in dollars.
+        /// </summary>
         public double Total => BillAmount + Tip;
+
+        /// <summary>
+        /// The tip as a string: $#.##
+        /// </summary>
+        // TODO: format the string
+        public string TipAsString => Tip.ToString();
+
+        /// <summary>
+        /// The total sum as string $#.##
+        /// </summary>
+        // TODO: format the string
+        public string TotalAsString => Total.ToString();
 
         public TipCalculator() : this(0, 0) { }
 
@@ -33,7 +60,7 @@
             }
 
             BillAmount = billAmount;
-            TipPercentage = tipPercentage;
+            TipRate = tipPercentage;
         }
 
         static void Main(string[] args)
@@ -49,8 +76,8 @@
             TipCalculator tipCalculator = new(billAmount, tipPercentage);
 
             // Print tip and total.
-            Console.WriteLine($"Tip: ${tipCalculator.Tip}");
-            Console.WriteLine($"Total: ${tipCalculator.Total}");
+            Console.WriteLine($"The tip is {tipCalculator.TipAsString}");
+            Console.WriteLine($"The total is {tipCalculator.TotalAsString}");
         }
     }
 }

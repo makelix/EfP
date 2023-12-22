@@ -12,7 +12,7 @@ namespace TipCalculatorTestsNS
         {
             TipCalculator tipCalculator = new();
             Assert.AreEqual(0.0, tipCalculator.BillAmount, Delta);
-            Assert.AreEqual(0.0, tipCalculator.TipPercentage, Delta);
+            Assert.AreEqual(0.0, tipCalculator.TipRate, Delta);
         }
 
         [TestMethod]
@@ -20,7 +20,7 @@ namespace TipCalculatorTestsNS
         {
             TipCalculator tipCalculator = new(100, 5);
             Assert.AreEqual(100.0, tipCalculator.BillAmount, Delta);
-            Assert.AreEqual(5.0, tipCalculator.TipPercentage, Delta);
+            Assert.AreEqual(5.0, tipCalculator.TipRate, Delta);
         }
 
         [TestMethod]
