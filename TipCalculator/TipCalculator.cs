@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace TipCalculatorNS
 {
@@ -67,19 +68,41 @@ namespace TipCalculatorNS
 
         static void Main(string[] args)
         {
-            // Read sum of bill.
-            decimal billAmount = 100.0M;
+            // Read sum of bill and tip percentage.
+            Console.WriteLine("Input:");
+            decimal billAmount = DoRead("bill amount");
+            decimal tipPercentage = DoRead("tip rate");
 
-            // Read tip percentage.
-            decimal tipPercentage = 5.0M;
-
-            // Calculate tip.
-            // Calculate total.
+            // Calculate tip and total.
             TipCalculator tipCalculator = new(billAmount, tipPercentage);
 
             // Print tip and total.
             Console.WriteLine($"The tip is {tipCalculator.TipAsString}");
             Console.WriteLine($"The total is {tipCalculator.TotalAsString}");
+        }
+
+        /// <summary>
+        /// Prompt user for a positive decimal number.
+        /// Loop until they give one.
+        /// </summary>
+        /// <param name="prompt">The prompt to show the user.</param>
+        /// <returns>A positive decimal number.</returns>
+        private static decimal DoRead(string prompt)
+        {
+            while (true)
+            {
+                Console.Write($"  {prompt}: ");
+                string? line = Console.ReadLine();
+
+                if (Decimal.TryParse(line, out decimal value)
+                    && Decimal.IsPositive(value))
+                {
+                    return value;
+                }
+
+                Console.WriteLine("Expected result: Please enter a valid number for");
+                Console.WriteLine($"                 the {prompt}.");
+            }
         }
     }
 }
