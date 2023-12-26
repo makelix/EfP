@@ -28,12 +28,12 @@ namespace TipCalculatorNS
         /// <summary>
         /// The tip in dollars.
         /// </summary>
-        public decimal Tip => BillAmount * TipRate / 100;
+        public decimal Tip => Math.Round((BillAmount * TipRate / 100), 2, MidpointRounding.AwayFromZero);
 
         /// <summary>
         /// The total sum (bill amount + tip) in dollars.
         /// </summary>
-        public decimal Total => BillAmount + Tip;
+        public decimal Total => Math.Round((BillAmount + Tip), 2, MidpointRounding.AwayFromZero);
 
         /// <summary>
         /// The tip as a string: $#.##

@@ -57,5 +57,13 @@ namespace TipCalculatorTestsNS
             TipCalculator tipCalculator2 = new(5.0M, 10.0M);
             Assert.AreEqual(5.5M, tipCalculator2.Total, Delta);
         }
+
+        [TestMethod]
+        public void RoundUp()
+        {
+            TipCalculator tipCalculator = new(11.25M, 15);
+            Assert.AreEqual("$1.69", tipCalculator.TipAsString);
+            Assert.AreEqual("$12.94", tipCalculator.TotalAsString);
+        }
     }
 }
