@@ -18,22 +18,22 @@ namespace TipCalculatorNS
         /// <summary>
         /// Bill amount in dollars.
         /// </summary>
-        public double BillAmount { get; set; }
+        public decimal BillAmount { get; set; }
 
         /// <summary>
         /// Tip rate in percents.
         /// </summary>
-        public double TipRate { get; set; }
+        public decimal TipRate { get; set; }
 
         /// <summary>
         /// The tip in dollars.
         /// </summary>
-        public double Tip => BillAmount * TipRate / 100;
+        public decimal Tip => BillAmount * TipRate / 100;
 
         /// <summary>
         /// The total sum (bill amount + tip) in dollars.
         /// </summary>
-        public double Total => BillAmount + Tip;
+        public decimal Total => BillAmount + Tip;
 
         /// <summary>
         /// The tip as a string: $#.##
@@ -49,14 +49,14 @@ namespace TipCalculatorNS
 
         public TipCalculator() : this(0, 0) { }
 
-        public TipCalculator(double billAmount, double tipPercentage)
+        public TipCalculator(decimal billAmount, decimal tipPercentage)
         {
-            if (Double.IsNegative(billAmount))
+            if (Decimal.IsNegative(billAmount))
             {
                 throw new ArgumentOutOfRangeException("Amount must be positive.");
             }
 
-            if (Double.IsNegative(tipPercentage))
+            if (Decimal.IsNegative(tipPercentage))
             {
                 throw new ArgumentOutOfRangeException("Tip must be positive.");
             }
@@ -68,10 +68,10 @@ namespace TipCalculatorNS
         static void Main(string[] args)
         {
             // Read sum of bill.
-            double billAmount = 100.0;
+            decimal billAmount = 100.0M;
 
             // Read tip percentage.
-            double tipPercentage = 5.0;
+            decimal tipPercentage = 5.0M;
 
             // Calculate tip.
             // Calculate total.
