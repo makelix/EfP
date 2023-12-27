@@ -1,4 +1,6 @@
-﻿namespace TipCalculatorUI
+﻿
+
+namespace TipCalculatorUI
 {
     partial class TipCalculatorUI
     {
@@ -132,6 +134,7 @@
             BillAmount.Size = new Size(103, 23);
             BillAmount.TabIndex = 6;
             BillAmount.Text = "0";
+            BillAmount.TextChanged += BillAmount_TextChanged;
             // 
             // TipRate
             // 
