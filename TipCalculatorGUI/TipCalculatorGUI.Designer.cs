@@ -1,4 +1,4 @@
-﻿namespace TipCalculatorGUI
+﻿namespace TipCalculatorGUINS
 {
     partial class TipCalculatorGUI
     {
@@ -127,6 +127,7 @@
             this.BillAmount.Name = "BillAmount";
             this.BillAmount.Size = new System.Drawing.Size(209, 20);
             this.BillAmount.TabIndex = 4;
+            this.BillAmount.TextChanged += new System.EventHandler(this.BillAmount_TextChanged);
             // 
             // TipRate
             // 

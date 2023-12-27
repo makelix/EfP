@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TipCalculatorGUI.Properties
+namespace TipCalculatorGUINS.Properties
 {
 
 
