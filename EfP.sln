@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TipCalculatorTests", "TipCa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TipCalculatorGUI", "TipCalculatorGUI\TipCalculatorGUI.csproj", "{EC4C4E65-97BA-45F8-96C5-56BC8DAB3DB3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TipCalculatorUI", "TipCalculatorUI\TipCalculatorUI.csproj", "{8BF59048-AF5F-4F6C-A2ED-92FC544FF5BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{EC4C4E65-97BA-45F8-96C5-56BC8DAB3DB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC4C4E65-97BA-45F8-96C5-56BC8DAB3DB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC4C4E65-97BA-45F8-96C5-56BC8DAB3DB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BF59048-AF5F-4F6C-A2ED-92FC544FF5BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BF59048-AF5F-4F6C-A2ED-92FC544FF5BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BF59048-AF5F-4F6C-A2ED-92FC544FF5BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BF59048-AF5F-4F6C-A2ED-92FC544FF5BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
