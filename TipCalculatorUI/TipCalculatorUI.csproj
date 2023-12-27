@@ -9,6 +9,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="PresentationFramework.dll" />
+    <None Remove="System.Windows.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\TipCalculator\TipCalculator.csproj" />
   </ItemGroup>
 

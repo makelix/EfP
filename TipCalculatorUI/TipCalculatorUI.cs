@@ -23,17 +23,11 @@ namespace TipCalculatorUI
             }
         }
 
-        private void TipRate_TextChanged(object sender, EventArgs e)
+        private void TipRate_Scroll(object sender, EventArgs e)
         {
-            if (Decimal.TryParse(TipRate.Text, out decimal value)
-                && Decimal.IsPositive(value))
-            {
-                TipCalculator.TipRate = value;
-                Tip.Text = TipCalculator.TipAsString;
-                Total.Text = TipCalculator.TotalAsString;
-            }
+            TipCalculator.TipRate = TipRate.Value;
+            Tip.Text = TipCalculator.TipAsString;
+            Total.Text = TipCalculator.TotalAsString;
         }
-
-
     }
 }

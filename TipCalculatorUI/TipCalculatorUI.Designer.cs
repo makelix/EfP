@@ -1,6 +1,7 @@
 ﻿
 
 
+
 namespace TipCalculatorUI
 {
     partial class TipCalculatorUI
@@ -39,12 +40,13 @@ namespace TipCalculatorUI
             Tip = new Label();
             Total = new Label();
             BillAmount = new TextBox();
-            TipRate = new TextBox();
+            TipRate = new TrackBar();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
             tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)TipRate).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -104,7 +106,7 @@ namespace TipCalculatorUI
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
-            tableLayoutPanel1.Size = new Size(183, 100);
+            tableLayoutPanel1.Size = new Size(321, 100);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // Tip
@@ -113,7 +115,7 @@ namespace TipCalculatorUI
             Tip.Dock = DockStyle.Fill;
             Tip.Location = new Point(77, 50);
             Tip.Name = "Tip";
-            Tip.Size = new Size(103, 25);
+            Tip.Size = new Size(241, 25);
             Tip.TabIndex = 4;
             Tip.Text = "$0.00";
             // 
@@ -123,7 +125,7 @@ namespace TipCalculatorUI
             Total.Dock = DockStyle.Fill;
             Total.Location = new Point(77, 75);
             Total.Name = "Total";
-            Total.Size = new Size(103, 25);
+            Total.Size = new Size(241, 25);
             Total.TabIndex = 5;
             Total.Text = "$0.00";
             // 
@@ -132,7 +134,7 @@ namespace TipCalculatorUI
             BillAmount.Dock = DockStyle.Fill;
             BillAmount.Location = new Point(77, 3);
             BillAmount.Name = "BillAmount";
-            BillAmount.Size = new Size(103, 23);
+            BillAmount.Size = new Size(241, 23);
             BillAmount.TabIndex = 6;
             BillAmount.Text = "0";
             BillAmount.TextChanged += BillAmount_TextChanged;
@@ -141,17 +143,19 @@ namespace TipCalculatorUI
             // 
             TipRate.Dock = DockStyle.Fill;
             TipRate.Location = new Point(77, 28);
+            TipRate.Maximum = 20;
+            TipRate.Minimum = 5;
             TipRate.Name = "TipRate";
-            TipRate.Size = new Size(103, 23);
+            TipRate.Size = new Size(241, 19);
             TipRate.TabIndex = 7;
-            TipRate.Text = "0";
-            TipRate.TextChanged += TipRate_TextChanged;
+            TipRate.Value = 5;
+            TipRate.Scroll += TipRate_Scroll;
             // 
             // TipCalculatorUI
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(183, 104);
+            ClientSize = new Size(321, 104);
             Controls.Add(tableLayoutPanel1);
             MaximizeBox = false;
             MinimizeBox = false;
@@ -159,6 +163,7 @@ namespace TipCalculatorUI
             Text = "TipCalculator";
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)TipRate).EndInit();
             ResumeLayout(false);
         }
 
@@ -168,6 +173,6 @@ namespace TipCalculatorUI
         private Label Tip;
         private Label Total;
         private TextBox BillAmount;
-        private TextBox TipRate;
+        private TrackBar TipRate;
     }
 }
