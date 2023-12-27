@@ -1,5 +1,6 @@
 ﻿
 
+
 namespace TipCalculatorUI
 {
     partial class TipCalculatorUI
@@ -144,6 +145,7 @@ namespace TipCalculatorUI
             TipRate.Size = new Size(103, 23);
             TipRate.TabIndex = 7;
             TipRate.Text = "0";
+            TipRate.TextChanged += TipRate_TextChanged;
             // 
             // TipCalculatorUI
             // 
