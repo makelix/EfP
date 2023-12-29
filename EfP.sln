@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrintQuote", "PrintQuote\Pr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleMath", "SimpleMath\SimpleMath.csproj", "{F6DB42F9-A54D-482A-824D-79DF4BBFBE43}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RetirementCalculator", "RetirementCalculator\RetirementCalculator.csproj", "{29DB0C19-348A-476C-A096-D7B95972DB1C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{F6DB42F9-A54D-482A-824D-79DF4BBFBE43}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F6DB42F9-A54D-482A-824D-79DF4BBFBE43}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F6DB42F9-A54D-482A-824D-79DF4BBFBE43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29DB0C19-348A-476C-A096-D7B95972DB1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29DB0C19-348A-476C-A096-D7B95972DB1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29DB0C19-348A-476C-A096-D7B95972DB1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29DB0C19-348A-476C-A096-D7B95972DB1C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
