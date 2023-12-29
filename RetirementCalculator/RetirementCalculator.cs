@@ -9,7 +9,14 @@
         int currentYear = DateTime.Now.Year;
         int retirementYear = currentYear + yearsLeft;
 
-        Console.WriteLine($"You have {yearsLeft} years left until you can retire.");
-        Console.WriteLine($"It's {currentYear}, so you can retire in {retirementYear}.");
+        if (yearsLeft < 0)
+        {
+            Console.WriteLine("You can already retire.");
+        }
+        else
+        {            
+            Console.WriteLine($"You have {yearsLeft} years left until you can retire.");
+            Console.WriteLine($"It's {currentYear}, so you can retire in {retirementYear}.");
+        }
     }
 }
