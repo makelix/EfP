@@ -1,4 +1,6 @@
-﻿namespace RectangularRoomAreaUI
+﻿using System.ComponentModel;
+
+namespace RectangularRoomAreaUI
 {
     partial class RectangularRoomAreaUI
     {
@@ -93,6 +95,7 @@
             RoomLength.Name = "RoomLength";
             RoomLength.Size = new Size(66, 23);
             RoomLength.TabIndex = 1;
+            RoomLength.TextChanged += Measurement_Changed;
             // 
             // label2
             // 
@@ -109,6 +112,7 @@
             RoomWidth.Name = "RoomWidth";
             RoomWidth.Size = new Size(66, 23);
             RoomWidth.TabIndex = 3;
+            RoomWidth.TextChanged += Measurement_Changed;
             // 
             // label1
             // 
@@ -138,13 +142,14 @@
             Meters.Name = "Meters";
             Meters.Size = new Size(61, 19);
             Meters.TabIndex = 1;
-            Meters.TabStop = true;
             Meters.Text = "&Meters";
             Meters.UseVisualStyleBackColor = true;
+            Meters.Click += RadioButton_Click;
             // 
             // Feet
             // 
             Feet.AutoSize = true;
+            Feet.Checked = true;
             Feet.Location = new Point(6, 21);
             Feet.Name = "Feet";
             Feet.Size = new Size(47, 19);
@@ -152,6 +157,7 @@
             Feet.TabStop = true;
             Feet.Text = "&Feet";
             Feet.UseVisualStyleBackColor = true;
+            Feet.Click += RadioButton_Click;
             // 
             // groupBox3
             // 
@@ -226,16 +232,10 @@
 
         #endregion
 
-        private TableLayoutPanel tableLayoutPanel1;
-        private GroupBox groupBox1;
-        private GroupBox groupBox2;
-        private GroupBox groupBox3;
         private TextBox RoomLength;
         private TextBox RoomWidth;
         private RadioButton Meters;
         private RadioButton Feet;
-        private Label label4;
-        private Label label3;
         private TextBox SquareMeters;
         private TextBox SquareFeet;
     }

@@ -1,5 +1,5 @@
 ﻿
-internal class RectangularRoomArea
+public class RectangularRoomArea
 {
     private const decimal Factor = 0.09290304M;
 
@@ -16,12 +16,12 @@ internal class RectangularRoomArea
         Console.WriteLine($"{Math.Round(areaInSquareMeters, 3, MidpointRounding.ToEven)} square meters");
     }
 
-    private static decimal SquareFeetToSquareMeters(decimal areaInSquareFeet)
+    public static decimal SquareFeetToSquareMeters(decimal areaInSquareFeet)
     {
         return areaInSquareFeet * Factor;
     }
 
-    private static decimal SquareMetersToSquareFeet(decimal areaInSquareMeters)
+    public static decimal SquareMetersToSquareFeet(decimal areaInSquareMeters)
     {
         return areaInSquareMeters / Factor;
     }
