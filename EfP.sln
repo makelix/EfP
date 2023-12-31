@@ -21,9 +21,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleMath", "SimpleMath\Si
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RetirementCalculator", "RetirementCalculator\RetirementCalculator.csproj", "{29DB0C19-348A-476C-A096-D7B95972DB1C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RectangularRoomArea", "RectangularRoomArea\RectangularRoomArea.csproj", "{2E1A271E-6C8C-4BD8-92D1-DDBE6A7668A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RectangularRoomArea", "RectangularRoomArea\RectangularRoomArea.csproj", "{2E1A271E-6C8C-4BD8-92D1-DDBE6A7668A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RectangularRoomAreaUI", "RectangularRoomAreaUI\RectangularRoomAreaUI.csproj", "{8D66A2D1-C51D-4C59-9A32-7BAD656D7B57}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RectangularRoomAreaUI", "RectangularRoomAreaUI\RectangularRoomAreaUI.csproj", "{8D66A2D1-C51D-4C59-9A32-7BAD656D7B57}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaintCalculator", "PaintCalculator\PaintCalculator.csproj", "{545A0612-D4DB-47F2-81D0-50A61933DA62}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +77,10 @@ Global
 		{8D66A2D1-C51D-4C59-9A32-7BAD656D7B57}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D66A2D1-C51D-4C59-9A32-7BAD656D7B57}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D66A2D1-C51D-4C59-9A32-7BAD656D7B57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{545A0612-D4DB-47F2-81D0-50A61933DA62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{545A0612-D4DB-47F2-81D0-50A61933DA62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{545A0612-D4DB-47F2-81D0-50A61933DA62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{545A0612-D4DB-47F2-81D0-50A61933DA62}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
