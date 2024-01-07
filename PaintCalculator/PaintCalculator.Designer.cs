@@ -52,7 +52,7 @@ namespace PaintCalculator
             B = new TextBox();
             A = new TextBox();
             label8 = new Label();
-            textBox7 = new TextBox();
+            GallonsNeeded = new TextBox();
             pictureBox1 = new PictureBox();
             label2 = new Label();
             label1 = new Label();
@@ -63,14 +63,101 @@ namespace PaintCalculator
             label6 = new Label();
             label5 = new Label();
             label4 = new Label();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             TabControl.SuspendLayout();
             Rectangle.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             Circle.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             Lshaped.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Location = new Point(173, 6);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(100, 113);
+            pictureBox1.TabIndex = 4;
+            pictureBox1.TabStop = false;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(8, 38);
+            label2.Name = "label2";
+            label2.Size = new Size(39, 15);
+            label2.TabIndex = 2;
+            label2.Text = "&Width";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(8, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(44, 15);
+            label1.TabIndex = 0;
+            label1.Text = "&Length";
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Location = new Point(173, 6);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(100, 113);
+            pictureBox2.TabIndex = 5;
+            pictureBox2.TabStop = false;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(6, 9);
+            label3.Name = "label3";
+            label3.Size = new Size(55, 15);
+            label3.TabIndex = 0;
+            label3.Text = "&Diameter";
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Location = new Point(173, 6);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(100, 113);
+            pictureBox3.TabIndex = 8;
+            pictureBox3.TabStop = false;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(5, 96);
+            label7.Name = "label7";
+            label7.Size = new Size(14, 15);
+            label7.TabIndex = 6;
+            label7.Text = "&d";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(5, 67);
+            label6.Name = "label6";
+            label6.Size = new Size(13, 15);
+            label6.TabIndex = 4;
+            label6.Text = "&c";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(4, 38);
+            label5.Name = "label5";
+            label5.Size = new Size(14, 15);
+            label5.TabIndex = 2;
+            label5.Text = "&b";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(4, 9);
+            label4.Name = "label4";
+            label4.Size = new Size(13, 15);
+            label4.TabIndex = 0;
+            label4.Text = "&a";
             // 
             // TabControl
             // 
@@ -100,29 +187,14 @@ namespace PaintCalculator
             Rectangle.Text = "Rectangle";
             Rectangle.UseVisualStyleBackColor = true;
             // 
-            // pictureBox1
-            // 
-            pictureBox1.Location = new Point(173, 6);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(100, 113);
-            pictureBox1.TabIndex = 4;
-            pictureBox1.TabStop = false;
-            // 
             // RoomWidth
             // 
             RoomWidth.Location = new Point(67, 35);
             RoomWidth.Name = "RoomWidth";
             RoomWidth.Size = new Size(100, 23);
             RoomWidth.TabIndex = 3;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(8, 38);
-            label2.Name = "label2";
-            label2.Size = new Size(39, 15);
-            label2.TabIndex = 2;
-            label2.Text = "&Width";
+            RoomWidth.Text = "0";
+            RoomWidth.TextChanged += TextBox_TextChanged;
             // 
             // RoomLength
             // 
@@ -130,16 +202,8 @@ namespace PaintCalculator
             RoomLength.Name = "RoomLength";
             RoomLength.Size = new Size(100, 23);
             RoomLength.TabIndex = 1;
-            RoomLength.TextChanged += this.TextBox_TextChanged;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(8, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(44, 15);
-            label1.TabIndex = 0;
-            label1.Text = "&Length";
+            RoomLength.Text = "0";
+            RoomLength.TextChanged += TextBox_TextChanged;
             // 
             // Circle
             // 
@@ -154,29 +218,14 @@ namespace PaintCalculator
             Circle.Text = "Circle";
             Circle.UseVisualStyleBackColor = true;
             // 
-            // pictureBox2
-            // 
-            pictureBox2.Location = new Point(173, 6);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(100, 113);
-            pictureBox2.TabIndex = 5;
-            pictureBox2.TabStop = false;
-            // 
             // Diameter
             // 
             Diameter.Location = new Point(67, 6);
             Diameter.Name = "Diameter";
             Diameter.Size = new Size(100, 23);
             Diameter.TabIndex = 1;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(6, 9);
-            label3.Name = "label3";
-            label3.Size = new Size(55, 15);
-            label3.TabIndex = 0;
-            label3.Text = "&Diameter";
+            Diameter.Text = "0";
+            Diameter.TextChanged += TextBox_TextChanged;
             // 
             // Lshaped
             // 
@@ -196,29 +245,14 @@ namespace PaintCalculator
             Lshaped.Text = "L-shaped";
             Lshaped.UseVisualStyleBackColor = true;
             // 
-            // pictureBox3
-            // 
-            pictureBox3.Location = new Point(173, 6);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(100, 113);
-            pictureBox3.TabIndex = 8;
-            pictureBox3.TabStop = false;
-            // 
             // D
             // 
             D.Location = new Point(67, 93);
             D.Name = "D";
             D.Size = new Size(100, 23);
             D.TabIndex = 7;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(5, 96);
-            label7.Name = "label7";
-            label7.Size = new Size(14, 15);
-            label7.TabIndex = 6;
-            label7.Text = "&d";
+            D.Text = "0";
+            D.TextChanged += TextBox_TextChanged;
             // 
             // C
             // 
@@ -226,15 +260,8 @@ namespace PaintCalculator
             C.Name = "C";
             C.Size = new Size(100, 23);
             C.TabIndex = 5;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(5, 67);
-            label6.Name = "label6";
-            label6.Size = new Size(13, 15);
-            label6.TabIndex = 4;
-            label6.Text = "&c";
+            C.Text = "0";
+            C.TextChanged += TextBox_TextChanged;
             // 
             // B
             // 
@@ -242,15 +269,8 @@ namespace PaintCalculator
             B.Name = "B";
             B.Size = new Size(100, 23);
             B.TabIndex = 3;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(4, 38);
-            label5.Name = "label5";
-            label5.Size = new Size(14, 15);
-            label5.TabIndex = 2;
-            label5.Text = "&b";
+            B.Text = "0";
+            B.TextChanged += TextBox_TextChanged;
             // 
             // A
             // 
@@ -258,15 +278,8 @@ namespace PaintCalculator
             A.Name = "A";
             A.Size = new Size(100, 23);
             A.TabIndex = 1;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(4, 9);
-            label4.Name = "label4";
-            label4.Size = new Size(13, 15);
-            label4.TabIndex = 0;
-            label4.Text = "&a";
+            A.Text = "0";
+            A.TextChanged += TextBox_TextChanged;
             // 
             // label8
             // 
@@ -277,36 +290,37 @@ namespace PaintCalculator
             label8.TabIndex = 1;
             label8.Text = "Gallons required to paint the area";
             // 
-            // textBox7
+            // GallonsNeeded
             // 
-            textBox7.Location = new Point(204, 168);
-            textBox7.Name = "textBox7";
-            textBox7.ReadOnly = true;
-            textBox7.Size = new Size(95, 23);
-            textBox7.TabIndex = 2;
+            GallonsNeeded.Location = new Point(204, 168);
+            GallonsNeeded.Name = "GallonsNeeded";
+            GallonsNeeded.ReadOnly = true;
+            GallonsNeeded.Size = new Size(95, 23);
+            GallonsNeeded.TabIndex = 2;
+            GallonsNeeded.Text = "0";
             // 
             // PaintCalculator
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(315, 200);
-            Controls.Add(textBox7);
+            Controls.Add(GallonsNeeded);
             Controls.Add(label8);
             Controls.Add(TabControl);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "PaintCalculator";
             Text = "Paint Calculator";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             TabControl.ResumeLayout(false);
             Rectangle.ResumeLayout(false);
             Rectangle.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             Circle.ResumeLayout(false);
             Circle.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             Lshaped.ResumeLayout(false);
             Lshaped.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -317,24 +331,14 @@ namespace PaintCalculator
         private TabPage Rectangle;
         private TabPage Circle;
         private TextBox RoomWidth;
-        private Label label2;
         private TextBox RoomLength;
-        private Label label1;
         private TabPage Lshaped;
         private TextBox Diameter;
-        private Label label3;
         private TextBox D;
-        private Label label7;
         private TextBox C;
-        private Label label6;
         private TextBox B;
-        private Label label5;
         private TextBox A;
-        private Label label4;
-        private PictureBox pictureBox1;
-        private PictureBox pictureBox2;
-        private PictureBox pictureBox3;
         private Label label8;
-        private TextBox textBox7;
+        private TextBox GallonsNeeded;
     }
 }
