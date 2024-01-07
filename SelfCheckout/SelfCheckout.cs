@@ -1,58 +1,71 @@
 ﻿public class SelfCheckout
 {
     // Record for storing the price and quantity of an item.
-    private record Item(decimal Price, int Quantity);
+    public record Item(decimal Price, int Quantity);
+
+    public int Count { get { return _items.Count; } }
+    public decimal Subtotal { get; private set; } = decimal.Zero;
+    public decimal Tax { get; private set; } = decimal.Zero;
+    public decimal Total { get; private set; } = decimal.Zero;
+
+    /// <summary>
+    /// Add item to SelfCheckout and recalculate properties.
+    /// </summary>
+    /// <param name="item">Item to add.</param>
+    public void Add(Item item)
+    {
+        _items.Add(item);
+        Subtotal += item.Price * item.Quantity;
+        Tax = TaxRate * Subtotal / 100;
+        Total = Subtotal + Tax;
+    }
+
+    // List of items.
+    private readonly List<Item> _items = [];
 
     // Tax rate in percent.
-    private static decimal TaxRate = 5.5M;
+    private const decimal TaxRate = 5.5M;
 
     static void Main(string[] args)
     {
+        SelfCheckout selfCheckout = new();
+
         // Read list of items from user.
-        List<Item> items = ReadItems();
-        if (items == null || items.Count == 0)
+        ReadItems(selfCheckout);
+        if (selfCheckout.Count == 0)
             return;
 
-        // Calculate subtotal, taxes and total.
-        decimal subtotal = SumOfItems(items);
-        decimal tax = TaxRate * subtotal / 100;
-        decimal total = subtotal + tax;
-
-        Console.WriteLine($"Subtotal: {Utilities.ToDollarString(subtotal)}");
-        Console.WriteLine($"Tax: {Utilities.ToDollarString(tax)}");
-        Console.WriteLine($"Total: {Utilities.ToDollarString(total)}");
+        Console.WriteLine($"Subtotal: {Utilities.ToDollarString(selfCheckout.Subtotal)}");
+        Console.WriteLine($"Tax: {Utilities.ToDollarString(selfCheckout.Tax)}");
+        Console.WriteLine($"Total: {Utilities.ToDollarString(selfCheckout.Total)}");
     }
 
     /// <summary>
-    /// Read Prices and Quantities of Items from user.
+    /// Read prices and quantities from the user.
+    /// Add them as Items to SelfCheckout.
     /// </summary>
-    /// <returns>List of Items.</returns>
-    private static List<Item> ReadItems()
+    private static void ReadItems(SelfCheckout selfCheckout)
     {
-        List<Item> items = new();
-
         // Loop until no price given.
         while (true)
         {
-            // Proceed to next "row" of bill.
-            int row = items.Count + 1;
+            // Compute number of next item.
+            int nextItemNum = selfCheckout.Count + 1;
 
             // Read price of item.
-            decimal price = Utilities.AskForDecimal($"Enter the price of item {row}: ",
+            decimal price = Utilities.AskForDecimal($"Enter the price of item {nextItemNum}: ",
                                                     0M, Decimal.MaxValue, false, -1);
 
-            // Exit loop when no price given.
+            // Exit when no price is given.
             if (price < 0)
                 break;
 
             // Read number of items.
-            int quantity = Utilities.AskForInt($"Enter the quantity of item {row}: ", 1);
+            int quantity = Utilities.AskForInt($"Enter the quantity of item {nextItemNum}: ", 1);
 
-            // Store price and quantity as Item.
-            items.Add(new Item(price, quantity));
+            // Store price and quantity as Item to SelfCheckou.
+            selfCheckout.Add(new Item(price, quantity));
         }
-
-        return items;
     }
 
     /// <summary>
