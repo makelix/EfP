@@ -25,7 +25,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RectangularRoomArea", "Rect
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RectangularRoomAreaUI", "RectangularRoomAreaUI\RectangularRoomAreaUI.csproj", "{8D66A2D1-C51D-4C59-9A32-7BAD656D7B57}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaintCalculator", "PaintCalculator\PaintCalculator.csproj", "{545A0612-D4DB-47F2-81D0-50A61933DA62}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaintCalculator", "PaintCalculator\PaintCalculator.csproj", "{545A0612-D4DB-47F2-81D0-50A61933DA62}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelfCheckout", "SelfCheckout\SelfCheckout.csproj", "{AD315F54-E119-4822-BA9D-B8644A162D9D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,10 @@ Global
 		{545A0612-D4DB-47F2-81D0-50A61933DA62}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{545A0612-D4DB-47F2-81D0-50A61933DA62}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{545A0612-D4DB-47F2-81D0-50A61933DA62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD315F54-E119-4822-BA9D-B8644A162D9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD315F54-E119-4822-BA9D-B8644A162D9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD315F54-E119-4822-BA9D-B8644A162D9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD315F54-E119-4822-BA9D-B8644A162D9D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

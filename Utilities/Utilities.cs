@@ -1,4 +1,7 @@
-﻿public class Utilities
+﻿using System.Globalization;
+using System.Text;
+
+public class Utilities
 {
     /// <summary>
     /// Request a string from the user on commandline.
@@ -115,6 +118,28 @@
                     return result;
             }
         }
+    }
+
+    /// <summary>
+    /// Convert a decimal number to a string like "$13.00".
+    /// </summary>
+    /// <param name="value">Value to convert.</param>
+    /// <returns>String representation of the value.</returns>
+    public static string ToDollarString(decimal value)
+    {
+        // Construct the string to return.
+        StringBuilder sb = new();
+
+        // Round the number to two decimal places.
+        decimal roundedValue = Math.Round(value, 2, MidpointRounding.AwayFromZero);
+        
+        // Append sign if necessary.
+        if (roundedValue < 0) sb.Append('-');
+
+        // Append dollar sign and absolute value.
+        sb.Append(Math.Abs(roundedValue).ToString("$0.00", CultureInfo.InvariantCulture));
+
+        return sb.ToString();
     }
 
     public static void Main()
