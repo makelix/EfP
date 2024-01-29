@@ -1,13 +1,47 @@
-﻿public class CurrencyConverter
+﻿using System.Net.Http;
+
+public class CurrencyConverter
 {
-    private static readonly string _app_id_name = "OPENEXCHANGERATES_APP_ID";
-    private static string? _app_id = null;
+    /// <summary>
+    /// Application ID used to connect to OpenExchangeRates.
+    /// </summary>
+    private readonly string _app_id = string.Empty;
+
+    /// <summary>
+    /// Base address of OpenExchangeRates API.
+    /// </summary>
+    private const string _baseAddress = "https://openexchangerates.org/api/";
+
+    private readonly HttpClient _httpClient = new()
+    {
+        BaseAddress = new Uri(_baseAddress)
+    };
+
     private decimal _exchangeRate = 1.0942M;
 
-    static CurrencyConverter()
+    public CurrencyConverter(string appId)
     {
-        _app_id = Environment.GetEnvironmentVariable(_app_id_name);
-        if (_app_id == null) throw new Exception($"Could not read {_app_id_name}");
+        if (String.IsNullOrWhiteSpace(appId))
+            throw new ArgumentException("OpenExchangeRates application ID cannot be empty.");
+        _app_id = appId;
+    }
+
+    /// <summary>
+    /// Get exchange rates from OpenExchangeRates.
+    /// </summary>
+    /// <returns>The received content as string.</returns>
+    public async Task<string> GetRatesAsync()
+    {
+        try
+        {
+            using HttpResponseMessage response = await _httpClient.GetAsync($"latest.json?app_id={_app_id}");
+            response.EnsureSuccessStatusCode();
+            return await response.Content.ReadAsStringAsync();
+        }
+        catch (HttpRequestException e)
+        {
+            throw new Exception(e.Message);
+        }
     }
 
     public decimal Convert(decimal amountFrom)
@@ -18,15 +52,25 @@
 
     public void SetRate(decimal exchangeRate = 1.0942M) => _exchangeRate = exchangeRate;
 
-    static void Main(string[] args)
+    static async Task Main(string[] args)
     {
-        string? s = Environment.GetEnvironmentVariable("OPENEXCHANGERATES_APP_ID");
-        Console.WriteLine(s);
-        CurrencyConverter converter = new();
-        decimal amountFrom = Utilities.AskForDecimal("How many euros are you exchanging? ", 0M);
+        // Get OpenExchangeRates application ID from environment variable.
+        string? appId = Environment.GetEnvironmentVariable("OPENEXCHANGERATES_APP_ID");
+        if (String.IsNullOrWhiteSpace(appId))
+            throw new Exception("AppID is empty.");
+        Console.WriteLine($"Application ID: {appId}");
+
+        // Create a converter using the application ID.
+        CurrencyConverter converter = new(appId);
+
+        // Get JSON from OpenExchangeRates.
+        string json = await converter.GetRatesAsync();
+        Console.WriteLine(json);
+
+/*        decimal amountFrom = Utilities.AskForDecimal("How many euros are you exchanging? ", 0M);
         decimal exchangeRate = Utilities.AskForDecimal("What is the exchange rate? ", 0);
         converter.SetRate(exchangeRate);
         decimal amountTo = converter.Convert(amountFrom);
         Console.WriteLine($"{amountFrom} euros at an exchange rate of {exchangeRate} is\n{amountTo} U.S. dollars.");
-    }
+*/    }
 }
